@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/cli/codegen_templates/common.ts"],
+  "sourcesContent": ["export function header(oneLineDescription: string) {\n  return `/* eslint-disable */\n  /**\n   * ${oneLineDescription}\n   * \n   * THIS CODE IS AUTOMATICALLY GENERATED.\n   * \n   * To regenerate, run \\`npx convex dev\\`.\n   * @module\n   */\n  `;\n}\n\n/**\n * We generate JS files as .d.ts and .js so that they are usable by both\n * JavaScript and TypeScript developers.\n */\nexport type GeneratedJsWithTypes = {\n  DTS: string;\n  JS?: string;\n};\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAO,SAAS,OAAO,oBAA4B;AACjD,SAAO;AAAA;AAAA,OAEF,kBAAkB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAQzB;",
+  "names": []
+}

@@ -1,0 +1,9 @@
+blinker==1.8.2
+click==8.1.7
+Flask==3.0.3
+Flask-Cors==5.0.0
+intersystems-irispython @ file:///Users/chasecoogan/Documents/hackmit/intersystems_irispython-3.2.0-py3-none-any.whl#sha256=0d0a53778d56f2fbf121f87d01d6f364049095304a850915d4cccbdad9fd55b6
+itsdangerous==2.2.0
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+Werkzeug==3.0.4

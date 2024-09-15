@@ -1,0 +1,37 @@
+import { Ora } from "ora";
+import { Filesystem } from "./fs.js";
+export type ErrorType = "invalid filesystem data" | {
+    "invalid filesystem or db data": {
+        tableName: string;
+        componentPath?: string;
+    } | null;
+} | "invalid filesystem or env vars" | "transient" | "fatal";
+export interface Context {
+    fs: Filesystem;
+    deprecationMessagePrinted: boolean;
+    spinner: Ora | undefined;
+    crash(args: {
+        exitCode: number;
+        errorType: ErrorType;
+        errForSentry?: any;
+        printedMessage: string | null;
+    }): Promise<never>;
+    registerCleanup(fn: () => Promise<void>): string;
+    removeCleanup(handle: string): (() => Promise<void>) | null;
+}
+export type OneoffCtx = Context & {
+    flushAndExit: (exitCode: number, err?: any) => Promise<never>;
+};
+export declare const oneoffContext: () => OneoffCtx;
+export declare function logError(ctx: Context, message: string): void;
+export declare function logWarning(ctx: Context, message: string): void;
+export declare function logMessage(ctx: Context, ...logged: any): void;
+export declare function logOutput(ctx: Context, ...logged: any): void;
+export declare function logVerbose(ctx: Context, ...logged: any): void;
+export declare function showSpinner(ctx: Context, message: string): void;
+export declare function changeSpinner(ctx: Context, message: string): void;
+export declare function logFailure(ctx: Context, message: string): void;
+export declare function logFinishedStep(ctx: Context, message: string): void;
+export declare function stopSpinner(ctx: Context): void;
+export declare function showSpinnerIfSlow(ctx: Context, message: string, delayMs: number, fn: () => Promise<any>): Promise<void>;
+//# sourceMappingURL=context.d.ts.map
